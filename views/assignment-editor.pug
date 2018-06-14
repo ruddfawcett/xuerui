@@ -1,0 +1,66 @@
+extends ./includes/layout.pug
+
+block vars
+  - var path = 'Chinese 623'
+
+block head
+  .head
+    div.title
+      input#name(type='text', placeholder='New Assignment')
+      p Title
+        span.zh 标题
+      .links
+        if assignment
+          a(href='#') Update
+        else
+          a#create(href='#') Create
+
+block content
+  div.main.list.full.no-border
+    .container.text
+      h1 Text
+        span.zh 课文
+      section.text
+        textarea#text(placeholder='Lesson text')
+    #terms.container.list.terms.no-border
+      h1 Terms
+        span.zh 生词
+      section
+        div
+          h3 1
+        div
+          input(type='text', class='zh')
+          p Chinese
+            span.zh 中文
+        div
+          input(type='text', class='py')
+          p Pinyin
+            span.zh 拼音
+        div
+          input(type='text', class='en')
+          p English
+            span.zh 英文
+      section
+        div
+          h3 2
+        div
+          input(type='text', class='zh')
+          p Chinese
+            span.zh 中文
+        div
+          input(type='text', class='py')
+          p Pinyin
+            span.zh 拼音
+        div
+          input(type='text', class='en')
+          p English
+            span.zh 英文
+      section.add
+        div.opaque
+          h3 3
+        div.add-card
+          h3 &plus; Add Term
+        div.buffer
+
+block scripts
+  script(type='text/javascript', src='/static/js/assignment-editor.js')

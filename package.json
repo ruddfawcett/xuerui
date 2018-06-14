@@ -1,0 +1,68 @@
+{
+  "name": "rui",
+  "description": "Interactive learning modules for Phillips Academy's Chinese Department.",
+  "version": "0.0.0",
+  "homepage": "",
+  "main": "src",
+  "keywords": [
+    "feathers"
+  ],
+  "author": {
+    "name": "Rudd Fawcett",
+    "email": "rudd.fawcett@gmail.com"
+  },
+  "contributors": [],
+  "bugs": {},
+  "directories": {
+    "lib": "src",
+    "test": "test/"
+  },
+  "engines": {
+    "node": "^9.0.0",
+    "npm": ">= 3.0.0"
+  },
+  "scripts": {
+    "test": "npm run eslint && npm run mocha",
+    "eslint": "eslint src/. test/. --config .eslintrc.json",
+    "dbstart": "brew services start mongodb",
+    "dbstop": "brew services stop mongodb",
+    "start": "node src/",
+    "mocha": "mocha test/ --recursive --exit"
+  },
+  "dependencies": {
+    "@feathersjs/authentication": "^2.1.5",
+    "@feathersjs/authentication-jwt": "^2.0.0",
+    "@feathersjs/authentication-local": "^1.2.1",
+    "@feathersjs/cli": "^3.6.4",
+    "@feathersjs/configuration": "^1.0.2",
+    "@feathersjs/errors": "^3.3.0",
+    "@feathersjs/express": "^1.2.2",
+    "@feathersjs/feathers": "^3.1.4",
+    "@feathersjs/socketio": "^3.2.1",
+    "async": "^2.6.0",
+    "compression": "^1.7.2",
+    "cookie-parser": "^1.4.3",
+    "cors": "^2.8.4",
+    "feathers-authentication-hooks": "^0.2.0",
+    "feathers-authentication-management": "^2.0.0",
+    "feathers-hooks-common": "^4.11.0",
+    "feathers-mailer": "^3.0.0",
+    "feathers-mongoose": "^6.1.1",
+    "helmet": "^3.12.0",
+    "lodash": "^4.17.10",
+    "moment": "^2.22.1",
+    "mongoose": "^5.0.16",
+    "node-sass-middleware": "^0.11.0",
+    "nodemailer-smtp-transport": "^2.7.4",
+    "pug": "^2.0.3",
+    "serve-favicon": "^2.5.0",
+    "shortid": "^2.2.8",
+    "winston": "^2.4.2"
+  },
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "mocha": "^5.1.1",
+    "request": "^2.85.0",
+    "request-promise": "^4.2.2"
+  }
+}

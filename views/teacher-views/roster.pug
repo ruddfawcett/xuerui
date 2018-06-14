@@ -1,0 +1,18 @@
+div.sidebar
+  .container
+    h1 Roster
+      span.zh 学生们
+    if course.roster.length == 1
+      section
+        ul
+          li #{course.full_roster.name.first} #{course.full_roster.name.last}
+    else if course.roster.length > 1
+      section
+        ul
+        for student in course.full_roster
+          li #{student.name.first}
+    else
+      section.empty.no-border
+        ul 
+          li
+            h1 No students enrolled

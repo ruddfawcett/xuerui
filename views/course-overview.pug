@@ -1,0 +1,45 @@
+extends ./includes/layout.pug
+
+block vars
+  - var path = course.name
+
+block head
+  .head
+    h3 #{course.name}
+    p #{course.description}
+    .links
+      if user.isTeacher
+        a(href=`/course/${course.shortId}/create-assignment`) New Assignment
+        a#join-link(href='#', data-clipboard-text=`localhost:3030/join/${course.shortId}`) Copy Invite Link
+      else
+        a(href=`/course/${course.shortId}/my-progress`) My Progress
+
+block content
+  div.main.list
+    .container
+      h1 Assignments
+        span.zh 分配
+      if course.assignments.length == 1
+          section
+            if user.isTeacher
+            a(href=`/course/${course.shortId}/${course.full_assignments.shortId}`)
+              h3 #{course.full_assignments.name}
+            p #{course.full_assignments.words.length} Terms | Updated #{course.full_assignments.createdAt}
+      else if course.assignments.length > 1
+        for assignment in course.full_assignments
+          section
+            a(href=`/course/${course.shortId}/${assignment.shortId}`)
+              h3 #{assignment.name}
+            p #{assignment.words.length} Terms | Updated #{assignment.createdAt}
+      else
+        section.empty.no-border
+          h1 No assignments
+
+  if user.isTeacher
+    include ./teacher-views/roster.pug
+
+block scripts
+  script(src='https://unpkg.com/clipboard@2.0.0/dist/clipboard.min.js')
+  script(type='text/javascript').
+    new ClipboardJS('#join-link');
+  

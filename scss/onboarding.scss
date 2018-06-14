@@ -1,0 +1,152 @@
+@import '_palette';
+
+::-webkit-input-placeholder {
+  color: lighten($gray, 10%);
+}
+
+:ms-input-placeholder {
+  color: lighten($gray, 10%);
+}
+
+::-moz-placeholder {
+  color: lighten($gray, 10%);
+}
+
+:-moz-placeholder {
+  color: lighten($gray, 10%);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: underline;
+  color: $blue;
+}
+
+div.wrapper {
+  width: 100%;
+}
+
+main {
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 10%;
+
+  .title {
+    margin-bottom: 20px;
+  }
+
+  h1 {
+    text-transform: capitalize;
+    letter-spacing: 0.5px;
+  }
+
+  h3 {
+    font-weight: normal;
+    margin-bottom: 30px;
+  }
+
+  p {
+    color: lighten($gray, 15%);
+    max-width: 80%;
+    margin: 0 auto 5px auto;
+
+    span.code {
+      background-color: lighten($silver, 16%);
+      padding: 3px 6px;
+    }
+
+    &.message {
+      display: none;
+      margin-bottom: 10px;
+    }
+
+    &.info {
+      -webkit-transition: opacity 0.3s ease;
+      -moz-transition: opacity 0.3s ease;
+      -ms-transition: opacity 0.3s ease;
+      -o-transition: opacity 0.3s ease;
+      transition: opacity 0.3s ease;
+      opacity: 1;
+
+      &.none {
+        opacity: 0;
+      }
+    }
+  }
+
+  img.loading {
+    display: none;
+    margin: 0 auto;
+    height: 40px;
+    margin-bottom: 10px;
+  }
+}
+
+input,select {
+  margin: 0 auto;
+  outline: none;
+  border: none;
+  height: 38px;
+  width: 300px;
+  font-size: 16px;
+  padding: 2px 10px;
+  display: block;
+  margin-bottom: 10px;
+  color: lighten($gray, 15%);
+  border-radius: 0;
+  // : 3px;
+  // background-color: lighten($silver, 16%);
+  background-color: white;
+  border-bottom: 1px solid lighten($silver, 16%);
+  -webkit-appearance: none;
+  transition: 0.5s ease-in-out;
+
+  &:-webkit-autofill {
+    // -webkit-box-shadow: 0 0 0px 1000px lighten($silver, 16%) inset;
+    -webkit-box-shadow: 0 0 0px 1000px white inset;
+  }
+
+  &:active, &:focus {
+    outline: none;
+  }
+
+  &:focus {
+    border-bottom: 1px solid $blue;
+  }
+
+  &.inline {
+    display: inline;
+    width: 145px;
+
+    &.buffer {
+      margin-right: 10px;
+      // border-radius: 3px;
+    }
+  }
+
+  &[type='submit'] {
+    margin: 60px auto;
+    background-color: lighten($silver, 5%);
+    border: none;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+    font-size: 14px;
+    cursor: pointer;
+    -webkit-transition: background 0.3s ease;
+    -moz-transition: background 0.3s ease;
+    -ms-transition: background 0.3s ease;
+    -o-transition: background 0.3s ease;
+    transition: background 0.3s ease;
+
+    &:enabled {
+      background-color: $blue;
+      cursor: pointer;
+    }
+  }
+}

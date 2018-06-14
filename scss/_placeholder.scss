@@ -1,0 +1,53 @@
+@import '_palette';
+
+::-webkit-input-placeholder {
+  color: white;
+}
+
+:ms-input-placeholder {
+  color: white;
+}
+
+::-moz-placeholder {
+  color: white;
+}
+
+:-moz-placeholder {
+  color: white;
+}
+
+.head, textarea {
+  ::-webkit-input-placeholder {
+    color: lighten($black, 20%);
+  }
+
+  :ms-input-placeholder {
+    color: lighten($black, 20%);
+  }
+
+  ::-moz-placeholder {
+    color: lighten($black, 20%);
+  }
+
+  :-moz-placeholder {
+    color: lighten($black, 20%);
+  }
+}
+
+section {
+  ::-webkit-input-placeholder {
+    color: lighten($silver, 0%);
+  }
+
+  :ms-input-placeholder {
+    color: lighten($silver, 0%);
+  }
+
+  ::-moz-placeholder {
+    color: lighten($silver, 0%);
+  }
+
+  :-moz-placeholder {
+    color: lighten($silver, 0%);
+  }
+}

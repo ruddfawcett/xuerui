@@ -1,0 +1,25 @@
+// Created by Rudd Fawcett '18.
+doctype html5
+html(lang='en')
+  block vars
+  head
+    title 學銳 | #{path}
+    block styles
+    link(rel='stylesheet', href='/static/assets/styles/main.css')
+    link(rel='stylesheet', href='/static/assets/styles/onboarding.css')
+    link(rel='canonical', href='https://paschedul.es')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no')
+  body
+    div.wrapper
+      include ./header.pug
+      main
+        div.title
+          block intro
+        block form
+    include analytics.pug
+    script(type='text/javascript', src='//unpkg.com/socket.io-client@1.7.3/dist/socket.io.js')
+    script(type='text/javascript', src='//unpkg.com/@feathersjs/client@^3.0.0/dist/feathers.js')
+    script(type='text/javascript', src='https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js')
+    script(type='text/javascript', src='/static/js/min/validate.js')
+
+    block scripts

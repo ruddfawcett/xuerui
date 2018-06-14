@@ -1,0 +1,24 @@
+extends ./includes/onboarding.pug
+
+block vars
+  - var path = 'Signup'
+
+block form
+  input(type='text', class='first inline buffer', placeholder='First Name')
+  input(type='text', class='last inline', placeholder='Last Name')
+  br
+  select(class='role')
+    option(value='', selected disabled) Account Type
+    option(value='TEACHER') Teacher
+    option(value='STUDENT') Student
+  input(type='text', class='email', placeholder='Email')
+  input(type='password', class='password', placeholder='Password')
+  input(type='submit', class='button', value='Signup', disabled='true')
+  img(class='loading', src='/static/assets/images/loading.svg')
+  p(class='message')
+  p(class='info') Have an account? #[a(href='/login') Login].
+
+block scripts
+  script(type='text/javascript').
+    validate(['first', 'last', 'email', 'password']);
+  script(type='text/javascript', src='/static/js/min/signup.js')

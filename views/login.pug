@@ -1,0 +1,25 @@
+extends ./includes/onboarding.pug
+
+block vars
+  - var path = verify ? 'Verify Account' : 'Login'
+
+block intro
+  - if (verify)
+    p Please login to verify your account.
+
+block form
+  input(type='text', class='email', name='email', value='rudd.fawcett@gmail.com' placeholder='Email')
+  input(type='password', class='password', name='password', value='password' placeholder='Password')
+  input(type='submit', class='button', value='Login', disabled='true')
+  img(class='loading', src='/static/assets/images/loading.svg')
+  p(class='message')
+  - if (!verify)
+    p(class='info') Don't have an account? #[a(href='/signup') Signup].
+
+block scripts
+  script(type='text/javascript').
+    validate(['email', 'password']);
+  - if (verify)
+    script(type='text/javascript').
+      var token = !{JSON.stringify(token)};
+  script(type='text/javascript', src='/static/js/login.js')

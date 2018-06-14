@@ -1,0 +1,20 @@
+extends ./includes/layout.pug
+
+block vars
+  - var path = 'Chinese 623'
+
+block head
+  .head
+    div.title
+      input#name(type='text', placeholder='Course Name')
+      p Name
+        span.zh 名字
+      .links
+        a(href='#') Create
+
+block content
+  div.main.list.full.no-border
+
+
+block scripts
+  script(type='text/javascript', src='/static/js/course-editor.js')

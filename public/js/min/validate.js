@@ -1,0 +1,1 @@
+function validate(c){function b(){var a=!1;$.each(c,function(b,c){$.trim($("."+c).val()).length||(a=!0)});$(".button").prop("disabled",a);$(".info").css({opacity:a?1:0});return a}$(document).keyup(function(){b()});$(document).on("click",function(){b()});$(document).keypress(function(a){if(13==a.which)return a.preventDefault(),b()||$(".button").click(),!1})};

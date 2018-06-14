@@ -1,0 +1,31 @@
+extends ./includes/layout.pug
+
+block vars
+  - var path = assignment.name + ' Progress'
+
+block head
+  .head
+    h3 Progress
+    p Student progress for #{assignment.name}.
+
+block content
+  div.main.list
+    .container
+      h1 Progress
+        span.zh 进步
+
+      for pairing in roster
+        section
+          if pairing.progress.rounds
+            h3 #{pairing.student.name.first + ' ' + pairing.student.name.last}: #{pairing.progress.rounds.length}/11 Rounds
+            br 
+            for round in pairing.progress.rounds
+              p Round #{round.round}: #{~~(round.progress * 100)}%
+          else
+            h3 #{pairing.student.name.first + ' ' + pairing.student.name.last}: 0/11 Rounds
+            
+block scripts
+  script(src='https://unpkg.com/clipboard@2.0.0/dist/clipboard.min.js')
+  script(type='text/javascript').
+    new ClipboardJS('#join-link');
+  

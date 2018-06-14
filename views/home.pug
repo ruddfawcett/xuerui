@@ -1,0 +1,46 @@
+extends ./includes/layout.pug
+
+block vars
+  - var path = 'Home'
+
+block head
+  .head
+    if user.isTeacher
+      div#creator.hidden
+        div.title
+          input#name(type='text', placeholder='Course Name')
+          p Name
+            span.zh 名字
+          br
+          input.description#description(type='text', placeholder='Description')
+          p Description
+            span.zh 描述
+          .links
+            a#create-course(href='#') Create
+            a#cancel(href='#') Cancel
+    div#default
+      if user.isTeacher
+        h3 你好，#{user.name.last}老师!
+        .links
+          a#new-course(href='#') New Course
+      else
+        h3 你好，#{user.name.first}!
+
+block content
+  div.main.list
+    .container
+      h1 Courses
+        span.zh 课程
+      if (courses.length)
+        for course in courses
+          section
+            a(href=`/course/${course.shortId}`)
+              h3 #{course.name}
+            p #{course.assignments.length} Assignment | Updated #{course.createdAt}
+      else
+        section.empty
+          h1 Nothing here, yet&hellip;
+
+block scripts
+  if user.isTeacher
+    script(type='text/javascript', src='/static/js/course-editor.js')
